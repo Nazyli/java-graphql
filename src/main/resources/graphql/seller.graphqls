@@ -1,0 +1,19 @@
+type Seller {
+    id: ID!
+    name: String!
+    address: String
+}
+
+input InputSeller {
+    name: String!
+    address: String
+}
+
+extend type Query {
+    sellers: [Seller]!
+    seller(id: ID!): Seller
+}
+
+extend type Mutation {
+    newSeller(input: InputSeller!): Seller!
+}
