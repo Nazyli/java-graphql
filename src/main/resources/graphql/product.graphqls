@@ -13,6 +13,7 @@ input InputProduct {
 }
 
 input UpdateProduct {
+    id: ID!
     title: String!
     description: String
     price: Float!
@@ -25,6 +26,6 @@ extend type Query {
 
 extend type Mutation {
     newProduct(input: InputProduct!, sellerId: ID!): Product!
-    updateProduct(input: UpdateProduct!): Product!
+    updateProduct(input: UpdateProduct!, sellerId: ID!): Product!
     removeProduct(id: ID!): Product!
 }

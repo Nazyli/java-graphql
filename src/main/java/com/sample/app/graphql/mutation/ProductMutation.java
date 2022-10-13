@@ -20,7 +20,9 @@ public class ProductMutation implements GraphQLMutationResolver {
         return productService.create(product);
     }
 
-    public Product updateProduct(Product product) {
+    public Product updateProduct(Product product, String sellerId) {
+        Seller seller = sellerService.getById(sellerId);
+        product.setSeller(seller);
         return productService.update(product);
     }
 
